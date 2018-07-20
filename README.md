@@ -1,5 +1,5 @@
 # wolfram pattern
-generator for patterns as in "A New Kind of Science" by Stephen Wolfram
+generator for patterns as in "A New Kind of Science" by Stephen Wolfram :poop:
 
 # sample output:
 
