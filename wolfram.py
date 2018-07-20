@@ -132,7 +132,6 @@ def generate_pattern(runs, ruleset):
     #imsave(filename, a, cmap=plt.cm.magma )
     
     print()
-    print("done")
     
 def main():
     # basic parameter
@@ -167,7 +166,6 @@ def every_pattern(size):
         os.makedirs(directory)
 
     for i in range(256):
-        print( int2patternstring(i), ":")
         generate_pattern(size, reproduce_ruleset(int2patternstring(i)))
         print()
 
