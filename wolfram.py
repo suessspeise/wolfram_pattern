@@ -107,7 +107,7 @@ def generate_pattern(runs, ruleset):
     a = initialize()
     
     # get rules and tell which
-    rules = get_ruleset(ruleset)
+    rules = ruleset
     rule_sequence = []
     rule_string = ""
     for i in rules:
@@ -146,7 +146,7 @@ def main():
 
     for i in range(runs):
         print("run ",i, ":")
-        generate_pattern(size, ruleset)
+        generate_pattern(size, get_ruleset(ruleset))
         print()
 
 # @param number integer < 256
@@ -157,6 +157,9 @@ def int2patternstring(number):
     pattern = str(bin(number))[2::]
     pattern = "0" * (8 - len(pattern)) + pattern
     return pattern
+
+
+
 
 def every_pattern(size):
     directory = "wolfram_img/" + str(size)
