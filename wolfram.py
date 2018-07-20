@@ -136,17 +136,38 @@ def generate_pattern(runs, ruleset):
     
 def main():
     # basic parameter
-    runs = 1000
+    runs = 10
     size = 500
     ruleset = 0 # random
     
-    directory = "wolfram_img/" + str(runs)
-	if not os.path.exists(directory):
-    	os.makedirs(directory)
+    directory = "wolfram_img/" + str(size)
+    if not os.path.exists(directory):
+        os.makedirs(directory)
 
     for i in range(runs):
         print("run ",i, ":")
         generate_pattern(size, ruleset)
         print()
 
-main()
+# @param number integer < 256
+# @return string of the length 8 representing the binary of "number"
+def int2patternstring(number):
+    if (number > 255):
+        number = 0
+    pattern = str(bin(number))[2::]
+    pattern = "0" * (8 - len(pattern)) + pattern
+    return pattern
+
+def every_pattern(size):
+    directory = "wolfram_img/" + str(size)
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+
+    for i in range(256):
+        print( int2patternstring(i), ":")
+        generate_pattern(size, reproduce_ruleset(int2patternstring(i)))
+        print()
+
+
+
+every_pattern(500)
